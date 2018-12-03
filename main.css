@@ -34,6 +34,8 @@ h2 {
     justify-content: center;
     flex-flow: column;
     background: hsl(20, 50%, 80%);
+    padding: 0 0 2em;
+    box-sizing: border-box;
 }
 
 #title {
@@ -55,7 +57,7 @@ h2 {
     align-items: center;
     width: 6em;
     height: 6em;
-    box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.2);
 }
 
 .container>div>* {
@@ -118,6 +120,23 @@ h2 {
 
 .content {
     margin-bottom: 2em;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 30% 30%;
+    justify-content: center;
+    gap: 2em;
+    margin: 2em;
+}
+
+.about-container>* {
+    object-fit: cover;
+    max-width: 100%;
+}
+
+p {
+    font-size: 0.8em;
 }
 
 @media (min-width: 650px) {
