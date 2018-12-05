@@ -1,7 +1,16 @@
+:root {
+    --main-bg: #fffbf9;
+    --secondary-bg: #e5c3b2;
+    --dark-text: #222;
+    --light-text: #fff;
+    --header-bg: var(--main-bg);
+    --header-txt: rgba(34, 34, 34, 0.7);
+}
+
 body {
     font-family: 'Dosis', sans-serif;
     font-size: 6vw;
-    color: #222;
+    color: var(--dark-text);
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -11,11 +20,12 @@ body {
 
 a {
     color: inherit;
-    text-decoration: none;
+    text-decoration-color: transparent;
+    transition: 0.5s ease text-decoration-color;
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration-color: currentColor;
 }
 
 h1 {
@@ -27,36 +37,136 @@ h2 {
     align-self: start;
 }
 
+header {
+    z-index: 10;
+    opacity: 0.96;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0.2em 5%;
+    box-sizing: border-box;
+    background: var(--header-bg);
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    color: var(--header-txt);
+    text-align: center;
+    /* For small screens */
+    grid-template: 
+        ". logo ."
+        "line line line" 1em
+        "b1 b1 b1"
+        "b2 b2 b2"
+        "b3 b3 b3"
+        "b4 b4 b4" /
+        [line-start] 1fr min-content 1fr [line-end]
+    ;
+}
+
+header:not(:hover) {
+    max-height: 2.8em;
+    overflow: hidden;
+}
+
+.button {
+    font-size: 1.4em;
+    grid-column-end: span 3;
+    padding: 0.3em 0;
+}
+
+.mask {
+    grid-area: logo;
+    height: 100%;
+    width: 100%;
+    z-index: 12;
+}
+
+.small-logo {
+    grid-area: logo;
+    z-index: 11;
+    background: var(--header-bg);
+    padding: 0 1em;
+}
+
+.small-logo>a {
+    display: block;
+    height: 2.4em;
+}
+
+.small-logo img {
+    height: 2.4em;
+    object-fit: cover;
+}
+
+.line {
+    grid-area: line;
+    width: 100%;
+    height: 0.08em;
+    background: currentColor;
+}
+
+.scrollbutton {
+    position: absolute;
+    bottom: 0;
+    z-index: 20;
+    opacity: 0.4;
+    width: 40%;
+    padding-bottom: 0.5em;
+    text-align: center;
+    transition: 0.5s ease opacity;
+}
+
+.scrollbutton>img {
+    height: 1.8em;
+}
+
+.scrollbutton:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}
+
 .section {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: column;
-    background: hsl(20, 50%, 80%);
-    padding: 0 0 2em;
+    background: var(--secondary-bg);
+    border-top: calc(2.8em * 0.8) solid transparent;
     box-sizing: border-box;
 }
 
+.section:first-of-type {
+    border-top: none;
+}
+
+.section:nth-of-type(2) {
+    border-image: repeating-linear-gradient(red, blue calc(2.8em * 0.8)) calc(2.8em * 0.8);
+}
+
 #title {
+    z-index: 10;
+    /* On mobile, this includes the address bar :'( */
     min-height: 100vh;
-    background: #fffbf9;
+    background: var(--main-bg);
 }
 
 .container {
     display: flex;
     flex-wrap: wrap;
-    max-width: 16em;
-    color: #fff;
+    --spacing: 1em;
+    --width: 6em;
+    max-width: calc(4 * var(--spacing) + 2 * var(--width));
+    color: var(--light-text);
     text-shadow: 0 0 0.2em #000;
 }
 
 .container>div {
-    margin: 1em;
+    margin: var(--spacing);
     display: grid;
     align-items: center;
-    width: 6em;
-    height: 6em;
+    width: var(--width);
+    height: var(--width);
     box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.2);
 }
 
@@ -71,8 +181,8 @@ h2 {
 }
 
 .container>div>img {
-    width: 6em;
-    height: 6em;
+    width: var(--width);
+    height: var(--width);
     object-fit: cover;
     box-sizing: border-box;
     background: #fff;
@@ -81,8 +191,7 @@ h2 {
 .logo {
     background: url(logo.png) no-repeat center/contain;
     height: 11em;
-    width: calc(11em * 200/214);
-    margin: 1.5em auto 0;
+    margin: 1em auto 0;
 }
 
 .content {
@@ -124,7 +233,7 @@ h2 {
 
 .about-container {
     display: grid;
-    grid-template-columns: 30% 30%;
+    grid-template-rows: auto auto;
     justify-content: center;
     gap: 2em;
     margin: 2em;
@@ -135,8 +244,13 @@ h2 {
     max-width: 100%;
 }
 
-p {
-    font-size: 0.8em;
+
+.text {
+    font-size: 0.9em;
+}
+
+p, ul, li {
+    margin: 0.4em;
 }
 
 @media (min-width: 650px) {
@@ -153,10 +267,54 @@ p {
     .content {
         align-items: baseline;
     }
+    header {
+        grid-template:
+            "b1 b2 logo b3 b4"
+            [line-start] ". . logo . ." 0.5em [line-end] /
+            [line-start] 1fr 1fr min-content 1fr 1fr [line-end]
+        ;
+        font-size: 0.8em;
+    }
+    .mask {
+        display: none;
+    }
+    .button {
+        font-size: 0.9em;
+        grid-column-end: auto;
+    }
+    .line {
+        align-self: start;
+        display: block;
+    }
+    .scrollbutton>img {
+        height: 1.5em;
+    }
+    .container {
+        --width: 7em;
+        --spacing: 1.3em;
+    }
+    .about-container {
+        grid-template-columns: 45% 45%;
+    }
+    .text {
+        font-size: 0.8em;
+    }
 }
 
 @media (min-width: 1050px) {
     body {
         font-size: 2.8vw;
+    }
+    header {
+        padding: 0.2em 10%;
+    }
+    .container {
+        --spacing: 1.5em;
+    }
+    .about-container {
+        grid-template-columns: 40% 40%;
+    }
+    .text {
+        font-size: 0.65em;
     }
 }
