@@ -1,6 +1,6 @@
 :root {
     --main-bg: #fffbf9;
-    --secondary-bg: #e5c3b2;
+    --secondary-bg: #f7daca;
     --dark-text: #222;
     --light-text: #fff;
     --header-bg: var(--main-bg);
@@ -61,10 +61,14 @@ header {
         "b4 b4 b4" /
         [line-start] 1fr min-content 1fr [line-end]
     ;
+    transition: max-height 0.15s ease-in;
+    max-height: 80%;
+    overflow-y: scroll;
 }
 
 header:not(:hover) {
     max-height: 2.8em;
+    transition-timing-function: ease-out;
     overflow: hidden;
 }
 
@@ -132,7 +136,7 @@ header:not(:hover) {
     justify-content: center;
     flex-flow: column;
     background: var(--secondary-bg);
-    border-top: calc(2.8em * 0.8) solid transparent;
+    border-top: 2.8em solid transparent;
     box-sizing: border-box;
 }
 
@@ -141,7 +145,7 @@ header:not(:hover) {
 }
 
 .section:nth-of-type(2) {
-    border-image: repeating-linear-gradient(red, blue calc(2.8em * 0.8)) calc(2.8em * 0.8);
+    border-top: 2.8em solid var(--main-bg);
 }
 
 #title {
@@ -178,6 +182,7 @@ header:not(:hover) {
 .container>div>div {
     z-index: 1;
     text-align: center;
+    padding: 0.8em;
 }
 
 .container>div>img {
@@ -219,7 +224,7 @@ header:not(:hover) {
     margin: 0.5em;
 }
 
-.content div.icon {
+div.icon {
     height: 1.2em;
     width: 1.2em;
     background-position: 0% 35%;
@@ -242,6 +247,10 @@ header:not(:hover) {
 .about-container>* {
     object-fit: cover;
     max-width: 100%;
+}
+
+#contact>div {
+    padding: 3em 0;
 }
 
 
