@@ -12,26 +12,37 @@
     <style>
         body {
             background: center/cover url("two.jpg");
-            color: white; text-shadow: 0 0 0.3em #000;
+            color: white;
         }
-        .logo, .icon {
+        
+        .logo,
+        .icon {
             filter: drop-shadow(0 0 0.8rem #000);
+        }
+        #title {
+            background: none;
+            color: #fff;
+            text-shadow: 0 0 0.3em #000;
         }
     </style>
 </head>
 
 <body>
-    <div class="logo"></div>
-    <div class="content">
-        <h1>AMY HOANG</h1>
-        <a href="mailto:amyhoang@ucdavis.edu">
-            <div class="icon mail"></div>
-            <div>amyhoang@ucdavis.edu</div>
-        </a>
-        <a href="https://instagram.com/amypandamonkey">
-            <div class="icon ig"></div>
-            <div>amypandamonkey</div>
-        </a>
+    <div class="section" id="title">
+        <div>
+            <img src="../img/logo.png" alt="AH" class="logo">
+            <div class="content">
+                <h1>AMY HOANG</h1>
+                <a href="mailto:amyhoang@ucdavis.edu">
+                    <img src="../img/mail3.png" alt="mail" class="icon mail">
+                    <div>amyhoang@ucdavis.edu</div>
+                </a>
+                <a href="https://instagram.com/amypandamonkey">
+                    <img src="../img/ig3.png" alt="ig" class="icon ig">
+                    <div>amypandamonkey</div>
+                </a>
+            </div>
+        </div>
     </div>
 </body>
 
