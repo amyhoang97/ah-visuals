@@ -12,7 +12,6 @@ body {
     font-family: 'Dosis', sans-serif;
     font-size: 6vw;
     color: var(--light-text);
-    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -20,13 +19,15 @@ body {
     justify-content: center;
 }
 
-a {
+a, .button {
     color: inherit;
+    text-decoration: underline;
     text-decoration-color: transparent;
     transition: 0.3s ease text-decoration-color;
+    cursor: pointer;
 }
 
-a:hover {
+a:hover, .button:hover {
     text-decoration-color: currentColor;
 }
 
@@ -36,6 +37,7 @@ h1 {
 
 h2 {
     margin: 0.4em 0.6em;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     align-self: start;
 }
 
@@ -70,7 +72,7 @@ header {
     text-shadow: none;
 }
 
-header:not(:hover) {
+header.close {
     max-height: 2.8em;
     transition-timing-function: ease-out;
     overflow: hidden;
@@ -94,11 +96,12 @@ header:not(:hover) {
     z-index: 11;
     background: var(--header-bg);
     padding: 0 1em;
+    transition: transform 0.15s ease;
+    font-size: 1em;
 }
 
-.small-logo>a {
-    display: block;
-    height: 2.4em;
+.small-logo:hover {
+    transform: translateY(0.1em)
 }
 
 .small-logo img {
@@ -120,8 +123,12 @@ header:not(:hover) {
     opacity: 0.4;
     width: 40%;
     padding-bottom: 0.5em;
-    text-align: center;
-    transition: 0.5s ease opacity;
+    display: flex;
+    justify-content: center;
+    transition:
+        opacity 0.5s ease,
+        transform 0.15s ease
+    ;
 }
 
 .scrollbutton>img {
@@ -131,6 +138,7 @@ header:not(:hover) {
 .scrollbutton:hover {
     text-decoration: none;
     opacity: 0.8;
+    transform: translateY(0.1em);
 }
 
 .section {
@@ -181,6 +189,15 @@ header:not(:hover) {
     height: var(--width);
     box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.2);
     text-decoration: none;
+    transition: 
+        transform 0.15s ease,
+        box-shadow 0.15s ease
+    ;
+}
+
+.container>a:hover {
+    transform: translateY(0.1em);
+    box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.4);
 }
 
 .container>a>* {
