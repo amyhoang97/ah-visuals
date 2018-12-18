@@ -16,21 +16,17 @@
                 behavior:'smooth',block:'start'
             });
         };
-        function headerScroll(elem,id){
-            scrollId(id);
-            elem.parentNode.classList.remove('contract')
-        };
     </script>
 </head>
 
 <body>
     <header class="close" onclick="this.classList.toggle('close')">
         <div class="mask"></div>
-        <div class="button" onclick="headerScroll(this,'photography')">Photography</div>
-        <div class="button" onclick="headerScroll(this,'design')">Design</div>
-        <div class="button" onclick="headerScroll(this,'about')">About Me</div>
-        <div class="button" onclick="headerScroll(this,'contact')">Contact</div>
-        <div class="small-logo button" onclick="headerScroll('title')"><img src="favicon.png" alt="AH"></div>
+        <div class="button" onclick="scrollId('photography')">Photography</div>
+        <div class="button" onclick="scrollId('design')">Design</div>
+        <div class="button" onclick="scrollId('about')">About Me</div>
+        <div class="button" onclick="scrollId('contact')">Contact</div>
+        <div class="small-logo button" onclick="scrollId('title')"><img src="favicon.png" alt="AH"></div>
         <div class="line"></div>
     </header>
     <div class="section" id="title">
