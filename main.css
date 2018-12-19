@@ -1,9 +1,11 @@
 :root {
-    --main-bg: #fffbf9;
-    --secondary-bg: #5999aa;
+    /* --main-bg: #fffbf9; */
+    --main-bg: #fff;
+    /* --secondary-bg: #5999aa; */
     --dark-text: #222;
     --light-text: #fff;
     --accent: #75cce3;
+    --secondary-bg: #fff;
     --header-bg: var(--main-bg);
     --header-txt: rgba(34, 34, 34, 0.7);
 }
@@ -11,7 +13,8 @@
 body {
     font-family: 'Dosis', sans-serif;
     font-size: 6vw;
-    color: var(--light-text);
+    font-weight: 500;
+    color: var(--dark-text);
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -32,22 +35,27 @@ a:hover, .button:hover {
 }
 
 h1 {
+    text-transform: uppercase;
     margin: 0.5em 0;
+    font-weight: 300;
 }
 
 h2 {
+    font-weight: 300;
+    text-transform: uppercase;
     margin: 0.4em 0.6em;
-    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    /* text-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
     align-self: start;
 }
 
 header {
+    text-transform: uppercase;
     z-index: 10;
     opacity: 0.96;
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 0.2em 5%;
+    padding: 0em 5%;
     box-sizing: border-box;
     background: var(--header-bg);
     display: grid;
@@ -57,18 +65,18 @@ header {
     text-align: center;
     /* For small screens */
     grid-template: 
-        ". logo ."
-        "line line line" 1em
-        "b1 b1 b1"
-        "b2 b2 b2"
-        "b3 b3 b3"
-        "b4 b4 b4" /
-        [line-start] 1fr min-content 1fr [line-end]
+    ". logo ."
+    "line line line" 1em
+    "b1 b1 b1"
+    "b2 b2 b2"
+    "b3 b3 b3"
+    "b4 b4 b4" /
+    [line-start] 1fr min-content 1fr [line-end]
     ;
     transition: max-height 0.15s ease-in;
     max-height: 80%;
     overflow-y: scroll;
-    box-shadow: 0 0 0.5em 0.2em rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0.5em 0.2em rgba(0, 0, 0, 0.05);
     text-shadow: none;
 }
 
@@ -81,7 +89,8 @@ header.close {
 .button {
     font-size: 1.4em;
     grid-column-end: span 3;
-    padding: 0.3em 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.5em;
 }
 
 .mask {
@@ -126,8 +135,8 @@ header.close {
     display: flex;
     justify-content: center;
     transition:
-        opacity 0.5s ease,
-        transform 0.15s ease
+    opacity 0.5s ease,
+    transform 0.15s ease
     ;
 }
 
@@ -153,7 +162,7 @@ header.close {
 }
 
 .section:first-of-type {
-    box-shadow: 0 0 0.5em 0.2em rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0.5em 0.2em rgba(0, 0, 0, 0.1);
 }
 
 /* .section:nth-of-type(2) {
@@ -170,6 +179,7 @@ header.close {
 }
 
 .container {
+    text-transform: uppercase;
     display: flex;
     flex-wrap: wrap;
     --spacing: 1em;
@@ -187,7 +197,7 @@ header.close {
     align-items: center;
     width: var(--width);
     height: var(--width);
-    box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.1);
     text-decoration: none;
     transition: 
         transform 0.15s ease,
@@ -197,7 +207,7 @@ header.close {
 
 .container>a:hover {
     transform: translateY(0.1em);
-    box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.2);
 }
 
 .container>a>* {
@@ -269,7 +279,7 @@ header.close {
 
 #about img {
     border: 0.6em solid #fff;
-    box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.15);
 }
 
 #contact>div {
@@ -278,6 +288,7 @@ header.close {
 
 .text {
     font-size: 0.9em;
+    text-transform: initial;
 }
 
 p, ul, li {
@@ -302,22 +313,22 @@ p, ul, li {
     header {
         grid-template:
             "b1 b2 logo b3 b4"
-            [line-start] ". . logo . ." 0.5em [line-end] /
+            /* [line-start] ". . logo . ." 0.5em [line-end] */ /
             [line-start] 1fr 1fr min-content 1fr 1fr [line-end]
         ;
         font-size: 0.8em;
         overflow-y: hidden;
     }
+    .line {
+        display: none;
+    }
     .mask {
         display: none;
     }
     .button {
-        font-size: 0.9em;
+        font-size: 0.7em;
         grid-column-end: auto;
-    }
-    .line {
-        align-self: start;
-        display: block;
+        padding: 0;
     }
     .scrollbutton>img {
         height: 1.5em;
@@ -341,9 +352,6 @@ p, ul, li {
 @media (min-width: 1050px) {
     body {
         font-size: 2.8vw;
-    }
-    header {
-        padding: 0.2em 10%;
     }
     .container {
         --spacing: 1.5em;
