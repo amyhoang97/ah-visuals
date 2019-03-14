@@ -11,100 +11,31 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <meta name="theme-color" content="#fffbf9">
     <script>
-        function scrollId(id){
+        function scrollId(id) {
             document.getElementById(id).scrollIntoView({
-                behavior:'smooth',block:'start'
+                behavior: 'smooth',
+                block: 'start'
             });
         };
     </script>
 </head>
 
 <body>
-    <header class="close" onclick="this.classList.toggle('close')">
-        <div class="mask"></div>
-        <div class="button" onclick="scrollId('photography')">Photography</div>
-        <div class="button" onclick="scrollId('design')">Design</div>
-        <div class="button" onclick="scrollId('about')">About Me</div>
-        <div class="button" onclick="scrollId('contact')">Contact</div>
-        <div class="small-logo button" onclick="scrollId('title')"><img src="favicon.png" alt="AH"></div>
-        <div class="line"></div>
-    </header>
-    <div class="section" id="title">
-        <div> <img src="img/logo.png" alt="AH" class="logo">
-            <!-- <div class="content">
-                <h1>AMY HOANG</h1>
-                <a href="mailto:amyhoang@ucdavis.edu">
-                    <img src="img/mail.png" class="icon mail" alt="mail">
-                    <div>amyhoang@ucdavis.edu</div>
-                </a>
-                <a href="https://instagram.com/mango.hay">
-                    <img src="img/ig.png" class="icon ig" alt="ig">
-                    <div>mango.hay</div>
-                </a>
-            </div> -->
-        </div>
-        <div class="scrollbutton" onclick="scrollId('photography')"><img src="img/arrow.png" alt="scroll"></div>
-    </div>
-    <div class="section" id="photography">
-        <h2>Photography</h2>
-        <div class="container">
-            <a href=""><img src="mock/dark.png" alt="Portraits">
-                <div>Portraits</div>
-            </a>
-            <a href=""><img src="mock/light.png" alt="Graduation">
-                <div>Graduation</div>
-            </a>
-            <a href=""><img src="mock/dark.png" alt="Product">
-                <div>Product</div>
-            </a>
-            <a href=""><img src="mock/light.png" alt="Landscape">
-                <div>Landscape</div>
-            </a>
-        </div>
-    </div>
-    <div class="section" id="design">
-        <h2>Design</h2>
-        <div class="container">
-            <a href="https://issuu.com/amypandamonkey/docs/ecoflo_campaign_proposal"><img src="mock/light.png" alt="Portraits">
-                <div>EcoFlo</div>
-            </a>
-            <a href="https://issuu.com/amypandamonkey/docs/a_warmer_winters_compressed_book"><img src="mock/dark.png" alt="Graduation">
-                <div>A Warmer Winters</div>
-            </a>
-            <a href="https://issuu.com/amypandamonkey/docs/_process_manual_new"><img src="mock/dark.png" alt="Product">
-                <div>Nori Packaging Design</div>
-            </a>
-        </div>
-    </div>
-    <div class="section" id="about">
-        <h2>About</h2>
-        <div class="about-container">
-            <img src="img/amy.jpg" alt="Amy Hoang" class="pic">
-            <div class="text">
-                <p>Hello there!</p>
-                <p>My name is Amy Hoang, and I am a graphic designer and photographer based in Los Angeles, California.</p>
-                <ul>
-                    <li>
-                        I love to connect with people, especially other creatives, and be inspired by their stories and perspectives. Thus, I have a strong affinity for travelling, especially in Asia!</li>
-                    <li>
-                        I am inspired by so many artists and styles, including Hayao Miyazaki’s animations, Edgar Wright’s films, Wes Anderson’s art direction.</li>
-                    <li>
-                        My goals are to tell stories through visuals that viewers can connect with and help foster a world of more open-mindedness, acceptance, and love for art.</li>
-                </ul>
+    <div class="page">
+        <div id="top">
+            <div class="title">
+                <a href="" onclick="document.scrollId('top')">AMY HOANG</a>
+            </div>
+            <div class="nav">
+                <a href="" onclick="document.scrollId('work')">WORK</a>
+                <a href="" onclick="document.scrollId('about')">ABOUT</a>
+                <a href="" onclick="document.scrollId('contact')">CONTACT</a>
             </div>
         </div>
-    </div>
-    <div class="section" id="contact">
-        <h2>Contact</h2>
         <div class="content">
-            <a href="mailto:amyhoang@ucdavis.edu">
-                <img src="img/mail3.png" class="icon mail" alt="mail">
-                <div>amyhoang@ucdavis.edu</div>
-            </a>
-            <a href="https://instagram.com/mango.hay">
-                <img src="img/ig3.png" class="icon ig" alt="ig">
-                <div>mango.hay</div>
-            </a>
+            <div id="work"></div>
+            <div id="about"></div>
+            <div id="contact"></div>
         </div>
     </div>
 </body>
